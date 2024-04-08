@@ -1,6 +1,6 @@
 import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../services/auth/auth.service';
 import { Route, Router } from '@angular/router';
 import swal from 'sweetalert';
 
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.auth.login(credentials).subscribe(
       (res) => {
         // debugger;
-        console.log(res);
+        console.log('token from login', res);
         if (res) {
           localStorage.setItem('tokenData', JSON.stringify(res));
           this.router.navigate(['/app-layout/app-welcome-page']);
