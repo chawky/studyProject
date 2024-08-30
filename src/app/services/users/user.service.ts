@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environment/environment.component';
-import { User } from '../../user';
+import { User } from '../../entities/user';
 import swal from 'sweetalert';
 import { AuthService } from '../auth/auth.service';
 const httOptions = {

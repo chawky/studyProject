@@ -11,6 +11,10 @@ const httOptions = {
 export class AuthService {
   public username: string;
   public password: string;
+  public firstName: string;
+  public lastName: string;
+  public email: string;
+  public userName: string;
   public loggedIn = false;
 
   constructor(private http: HttpClient) {
@@ -54,6 +58,20 @@ export class AuthService {
       {
         userName: credentials.userName,
         password: credentials.password,
+      },
+      httOptions
+    );
+  }
+  signup(credentials: any): Observable<any> {
+    return this.http.post(
+      environment.hostUrl + `/signup`,
+      {
+        firstName: credentials.userName,
+        lastName: credentials.lastName,
+        email: credentials.email,
+        userName: credentials.userName,
+        password: credentials.password,
+        role: credentials.role,
       },
       httOptions
     );

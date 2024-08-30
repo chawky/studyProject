@@ -18,8 +18,14 @@ export const authInterceptor: HttpInterceptorFn = (
   const authService = inject(AuthService);
   const re = /signin/gi;
   const re1 = /refreshtoken/gi;
+  const re2 = /signup/gi;
   // Exclude interceptor for login request
-  if (token && req.url.search(re) === -1 && req.url.search(re1) === -1) {
+  if (
+    token &&
+    req.url.search(re) === -1 &&
+    req.url.search(re1) === -1 &&
+    req.url.search(re2) === -1
+  ) {
     const cloned = req.clone({
       setHeaders: {
         Authorization: `Bearer ${token.token}`,
